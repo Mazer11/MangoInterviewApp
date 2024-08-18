@@ -21,4 +21,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "MangoInterviewApp"
 include(":app")
- 
+include(":feature:login")
+include(":feature:chat")
+include(":feature:profile")
+include(":core:auth")
+include(":core:local")
+include(":core:profile")
+include(":core:remote")
