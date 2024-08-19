@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.google.devtools.ksp)
-    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
-    namespace = "org.interview.remote"
+    namespace = "org.interview.utils"
     compileSdk = 34
 
     defaultConfig {
@@ -37,14 +35,8 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-    implementation(platform(libs.okhttp.bom))
-    implementation(libs.okhttp.logging.interceptor)
-    implementation(libs.okhttp)
-    implementation(libs.retrofit)
-    implementation(libs.moshi)
-    ksp(libs.moshi.codegen)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
