@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.retrofit)
     implementation(libs.moshi)
+    implementation(libs.retrofit.moshi.converter)
     ksp(libs.moshi.codegen)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
