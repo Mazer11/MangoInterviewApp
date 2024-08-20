@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:auth"))
+    implementation(project(":core:remote"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

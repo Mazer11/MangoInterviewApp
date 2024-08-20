@@ -34,7 +34,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:profile"))
+    implementation(project(":core:local"))
+    implementation(project(":core:remote"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
