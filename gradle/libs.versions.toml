@@ -18,6 +18,7 @@ retrofit = "2.11.0"
 okhttpBom = "4.12.0"
 moshi = "1.15.0"
 coil = "2.7.0"
+phone = "8.13.15"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -50,6 +51,7 @@ moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
 moshi-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+libphonenumber = { group = "com.googlecode.libphonenumber", name = "libphonenumber", version.ref = "phone" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

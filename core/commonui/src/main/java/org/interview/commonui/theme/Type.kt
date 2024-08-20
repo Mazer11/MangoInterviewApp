@@ -1,4 +1,4 @@
-package org.interview.mangointerviewapp.ui.theme
+package org.interview.commonui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
