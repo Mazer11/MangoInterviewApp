@@ -54,6 +54,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:login"))
+    implementation(project(":feature:chat"))
+    implementation(project(":feature:profile"))
+    implementation(project(":core:commonui"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -65,6 +69,9 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
