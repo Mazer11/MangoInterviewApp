@@ -12,7 +12,6 @@ import org.interview.login.models.CheckAuthData
 import org.interview.login.models.SendAuthData
 import org.interview.login.ui.screen.auth.event.AuthScreenEvents
 import org.interview.login.ui.screen.auth.state.AuthScreenState
-import org.interview.login.ui.screen.registration.event.RegistrationScreenEvents
 import org.interview.login.usecase.CheckAuthUseCase
 import org.interview.login.usecase.SendAuthUseCase
 import org.interview.remote.models.Response
