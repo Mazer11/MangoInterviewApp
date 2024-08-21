@@ -64,7 +64,7 @@ fun AppOutlinedTextField(
         enabled = enabled,
         isFocused = isFocused.value
     ),
-    supportingText: @Composable (() -> Unit)? = null,
+    supportingText: @Composable (() -> Unit)? = {},
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
