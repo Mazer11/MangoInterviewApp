@@ -6,10 +6,10 @@ import org.interview.remote.models.common.AvatarToSend
 
 @JsonClass(generateAdapter = true)
 data class UpdateProfileRequest(
-    @Json(name = "name") val name: String,
-    @Json(name = "username") val username: String,
-    @Json(name = "birthday") val birthday: String,
-    @Json(name = "city") val city: String,
-    @Json(name = "status") val status: String,
-    @Json(name = "avatar") val avatar: AvatarToSend
+    @Json(name = "name") val name: String = "",
+    @Json(name = "username") val username: String = "",
+    @Json(name = "birthday") val birthday: String? = null,
+    @Json(name = "city") val city: String? = null,
+    @Json(name = "status") val status: String? = null,
+    @Json(name = "avatar") val avatar: AvatarToSend? = null
 )

@@ -5,6 +5,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class CheckAuthRequest(
-    @Json(name = "phone") val phone: String,
-    @Json(name = "code") val code: String
+    @Json(name = "phone") val phone: String = "",
+    @Json(name = "code") val code: String = ""
 )

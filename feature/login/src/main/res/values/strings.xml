@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="phone">Номер телефона</string>
+    <string name="registration_message">Заполните форму ниже для регистрации</string>
+    <string name="enter_name">Введите ваше имя и фамилию</string>
+    <string name="enter_username">Введите имя пользователя</string>
+    <string name="this_is_how_others_will_see">Это имя будут видеть другие пользователи</string>
+    <string name="continue_action">Продолжить</string>
+    <string name="name_format_text">Имя должно состоять из 2 слов, написанных на английском.</string>
+    <string name="registration">Регистрация</string>
+    <string name="auth">Вход</string>
+    <string name="wrong_phone_format">Неверный формат телефона</string>
+    <string name="get_code">Получить код</string>
+    <string name="enter_phone_message">Введите ваш номер телефона, чтобы получить код для входа.</string>
+    <string name="enter_phone_to_register">Введите номер телефона для перехода к регистрации</string>
+    <string name="enter_code_message">На ваш номер телефона %1$s отправлено смс с кодом для входа. Введите его ниже, чтобы продолжить.</string>
+    <string name="code">Введите код</string>
+    <string name="send_code">Отправить код</string>
+    <string name="username_format_hint">Имя пользователя может содержать: Заглавные и строчные латинские буквы, цифры и символы (- и _)</string>
+</resources>

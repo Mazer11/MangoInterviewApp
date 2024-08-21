@@ -5,5 +5,5 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class SendAuthResponse(
-    @Json(name = "is_success") val isSuccess: Boolean
+    @Json(name = "is_success") val isSuccess: Boolean = false
 )

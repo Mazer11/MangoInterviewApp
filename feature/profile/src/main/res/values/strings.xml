@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile">Профиль</string>
+    <string name="username_format_hint">Имя пользователя может содержать: Заглавные и строчные латинские буквы, цифры и символы (- и _)</string>
+    <string name="this_is_how_others_will_see">Это имя будут видеть другие пользователи</string>
+    <string name="enter_name">Введите ваше имя и фамилию</string>
+    <string name="name_format_text">Имя должно состоять из 2 слов, написанных на английском.</string>
+    <string name="enter_username">Введите имя пользователя</string>
+    <string name="enter_city">Введите город</string>
+    <string name="tell_about_yourself">Расскажите о себе</string>
+    <string name="enter_birthday">Введите вашу дату рождения</string>
+    <string name="save_changes">Сохранить изменения</string>
+</resources>

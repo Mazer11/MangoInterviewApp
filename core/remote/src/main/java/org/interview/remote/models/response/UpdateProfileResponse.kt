@@ -6,5 +6,5 @@ import org.interview.remote.models.common.Avatars
 
 @JsonClass(generateAdapter = true)
 data class UpdateProfileResponse(
-    @Json(name = "avatars")val avatars: Avatars
+    @Json(name = "avatars") val avatars: Avatars? = null
 )
