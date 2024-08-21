@@ -10,10 +10,10 @@ import org.interview.remote.models.response.SendAuthResponse
 
 interface AuthRepository {
 
-    fun registration(request: RegistrationRequest): Response<RegistrationResponse>
+    suspend fun registration(request: RegistrationRequest): Response<RegistrationResponse?>
 
-    fun checkAuthCode(request: CheckAuthRequest): Response<CheckAuthResponse>
+    suspend fun checkAuthCode(request: CheckAuthRequest): Response<CheckAuthResponse?>
 
-    fun sendAuthCode(request: SendAuthRequest): Response<SendAuthResponse>
+    suspend fun sendAuthCode(request: SendAuthRequest): Response<SendAuthResponse?>
 
 }
