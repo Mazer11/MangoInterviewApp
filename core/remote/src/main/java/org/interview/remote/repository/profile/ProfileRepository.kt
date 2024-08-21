@@ -7,8 +7,8 @@ import org.interview.remote.models.response.UpdateProfileResponse
 
 interface ProfileRepository {
 
-    fun getProfileData(): Response<GetProfileResponse>
+    suspend fun getProfileData(): Response<GetProfileResponse?>
 
-    fun updateProfileData(request: UpdateProfileRequest): Response<UpdateProfileResponse>
+    suspend fun updateProfileData(request: UpdateProfileRequest): Response<UpdateProfileResponse?>
 
 }

@@ -22,12 +22,11 @@ import javax.inject.Singleton
 
 @Singleton
 class NetworkClient @Inject constructor(
-    settingRepository: SettingRepository
+    private val settingRepository: SettingRepository
 ) {
 
     private val baseUrl = "https://plannerok.ru/"
     private val moshi: Moshi = Moshi.Builder().build()
-    private val _accessToken = settingRepository.getAccessToken()
 
     private val tokenRefreshClient = OkHttpClient.Builder().apply {
         //TODO: check if debug
@@ -37,7 +36,7 @@ class NetworkClient @Inject constructor(
     private val client: OkHttpClient = OkHttpClient.Builder().apply {
         //TODO: check if debug
         addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        addInterceptor(AccessInterceptor(_accessToken.value))
+        addInterceptor(AccessInterceptor(settingRepository))
     }
         .authenticator(TokenAuthenticator(tokenRefreshClient, moshi, settingRepository))
         .build()
@@ -50,21 +49,27 @@ class NetworkClient @Inject constructor(
 
     private val apiService = retrofit.create(NetworkAPI::class.java)
 
-    fun getApiService() = apiService
+    fun getApiService(): NetworkAPI = apiService
+
+    fun storeTokens(accessToken: String, refreshToken: String) {
+        settingRepository.saveClientTokens(accessToken, refreshToken)
+    }
 
     private class AccessInterceptor(
-        private val accessToken: String?
+        private val settingRepository: SettingRepository
     ) : Interceptor {
         override fun intercept(chain: Chain): Response {
             val request = chain.request()
+            val accessToken = settingRepository.getAccessToken().value
 
-            val newRequest = accessToken?.let {
-                request.newBuilder()
-                    .header("Authorization", "Bearer $it")
+            if (accessToken != null) {
+                val newRequest = request.newBuilder()
+                    .addHeader("Authorization", "Bearer $accessToken")
                     .build()
-            } ?: request
+                return chain.proceed(newRequest)
+            }
 
-            return chain.proceed(newRequest)
+            return chain.proceed(request)
         }
     }
 
@@ -113,7 +118,10 @@ class NetworkClient @Inject constructor(
                     val adapter = moshi.adapter(RegistrationResponse::class.java)
                     val result = adapter.fromJson(body)
                     if (result != null)
-                        settingRepository.saveClientTokens(result.accessToken)
+                        settingRepository.saveClientTokens(
+                            result.accessToken ?: "",
+                            result.refreshToken
+                        )
                 } else {
                     //RESPONSE IS EMPTY
                 }

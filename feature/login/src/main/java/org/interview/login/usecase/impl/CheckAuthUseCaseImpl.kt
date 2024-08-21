@@ -7,7 +7,6 @@ import org.interview.login.models.CheckAuthResult
 import org.interview.login.models.toRequest
 import org.interview.login.models.toResult
 import org.interview.login.usecase.CheckAuthUseCase
-import org.interview.remote.models.ErrorContent
 import org.interview.remote.models.Response
 import org.interview.remote.repository.auth.AuthRepository
 import javax.inject.Inject
