@@ -1,10 +1,8 @@
 package org.interview.profile.usecase.impl
 
-import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import org.interview.profile.models.GetProfileResult
-import org.interview.profile.models.toProfile
 import org.interview.profile.models.toResult
 import org.interview.profile.usecase.GetProfileDataUseCase
 import org.interview.remote.models.Response

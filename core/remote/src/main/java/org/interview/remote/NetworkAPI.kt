@@ -9,7 +9,6 @@ import org.interview.remote.models.response.GetProfileResponse
 import org.interview.remote.models.response.RegistrationResponse
 import org.interview.remote.models.response.SendAuthResponse
 import org.interview.remote.models.response.UpdateProfileResponse
-import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers

@@ -1,6 +1,5 @@
 package org.interview.remote.repository.profile
 
-import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.interview.remote.client.NetworkClient
