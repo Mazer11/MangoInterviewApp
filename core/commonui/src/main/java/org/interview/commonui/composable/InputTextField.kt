@@ -40,7 +40,6 @@ import org.interview.commonui.R
 import org.interview.commonui.extensions.clearFocusOnKeyboardDismiss
 import org.interview.commonui.theme.MangoInterviewAppTheme
 import org.interview.commonui.utils.PhoneHelper
-import java.text.DecimalFormat
 
 @Composable
 fun AppOutlinedTextField(
@@ -65,70 +64,6 @@ fun AppOutlinedTextField(
         isFocused = isFocused.value
     ),
     supportingText: @Composable (() -> Unit)? = {},
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-    singleLine: Boolean = true,
-    maxLines: Int = Int.MAX_VALUE,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    shape: Shape = MaterialTheme.shapes.extraSmall,
-    colors: TextFieldColors = OutlinedTextFieldDefaults.colors(),
-) {
-    if (showKeyboard) {
-        LaunchedEffect(Unit) { focusRequester.requestFocus() }
-    }
-
-    OutlinedTextField(
-        value = value,
-        onValueChange = onValueChange,
-        modifier = modifier
-            .focusRequester(focusRequester)
-            .onFocusChanged { focusState ->
-                isFocused.value = focusState.isFocused
-            }
-            .clearFocusOnKeyboardDismiss(),
-        enabled = enabled,
-        textStyle = textStyle,
-        label = label,
-        placeholder = placeholder,
-        leadingIcon = leadingIcon,
-        trailingIcon = trailingIcon,
-        supportingText = supportingText,
-        isError = isError,
-        visualTransformation = visualTransformation,
-        keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
-        singleLine = singleLine,
-        maxLines = maxLines,
-        interactionSource = interactionSource,
-        shape = shape,
-        colors = colors,
-    )
-}
-
-@Composable
-fun AppOutlinedTextField(
-    modifier: Modifier = Modifier,
-    value: TextFieldValue,
-    onValueChange: (TextFieldValue) -> Unit,
-    onCancel: () -> Unit = { onValueChange(TextFieldValue()) },
-    enabled: Boolean = true,
-    showKeyboard: Boolean = false,
-    isFocused: MutableState<Boolean> = remember { mutableStateOf(false) },
-    focusRequester: FocusRequester = remember { FocusRequester() },
-    textStyle: TextStyle = LocalTextStyle.current,
-    label: @Composable (() -> Unit)? = null,
-    placeholder: @Composable (() -> Unit)? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    isError: Boolean = false,
-    trailingIcon: @Composable (() -> Unit)? = defaultTrailingContent(
-        isError = isError,
-        onClick = onCancel,
-        value = value.text,
-        enabled = enabled,
-        isFocused = isFocused.value,
-    ),
-    supportingText: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -201,45 +136,6 @@ fun defaultTrailingContent(
         }
         else -> null
     }
-
-@Suppress("MagicNumber")
-object DateTransformation : VisualTransformation {
-    override fun filter(text: AnnotatedString): TransformedText {
-        return dateFilter(text)
-    }
-
-    private fun dateFilter(text: AnnotatedString): TransformedText {
-
-        val trimmed = if (text.text.length >= 8) text.text.substring(0..7) else text.text
-        var out = ""
-        for (i in trimmed.indices) {
-            out += trimmed[i]
-            if (i % 2 == 1 && i < 4) out += "."
-        }
-
-        val numberOffsetTranslator = object : OffsetMapping {
-            override fun originalToTransformed(offset: Int): Int {
-                return when {
-                    offset <= 1 -> offset
-                    offset <= 3 -> offset + 1
-                    offset <= 8 -> offset + 2
-                    else -> 10
-                }
-            }
-
-            override fun transformedToOriginal(offset: Int): Int {
-                return when {
-                    offset <= 2 -> offset
-                    offset <= 5 -> offset - 1
-                    offset <= 10 -> offset - 2
-                    else -> 8
-                }
-            }
-        }
-
-        return TransformedText(AnnotatedString(out), numberOffsetTranslator)
-    }
-}
 
 object PhoneNumberTransformation : VisualTransformation {
     private val phoneNumberFormatter = PhoneHelper.phoneNumberTypeFormatter

@@ -29,7 +29,6 @@ fun ChatBottomBar(
     onSendMessage: (String) -> Unit
 ) {
     val message = remember { mutableStateOf("") }
-    val focusManager = LocalFocusManager.current
     val isSendEnabled = remember { derivedStateOf { message.value.isNotEmpty() } }
 
     Row(
